@@ -5,7 +5,7 @@
 
 # In[14]:
 
-
+import os
 import pickle
 import numpy as np
 import pandas as pd
@@ -17,9 +17,18 @@ import streamlit as st
 # In[73]:
 
 
-lr_model = pickle.load(open('model_lr.pkl', 'rb'))
-feature_scaler = pickle.load(open('feature_scaler.pkl', 'rb'))
-target_scaler = pickle.load(open('target_scaler.pkl', 'rb'))
+# Define correct paths
+base_path = os.path.join(os.path.dirname(__file__), "model_dep")
+
+model_path = os.path.join(base_path, "model_lr.pkl")
+scaler_path = os.path.join(base_path, "feature_scaler.pkl")
+target_scaler_path = os.path.join(base_path, "target_scaler.pkl")
+
+# Load the model and scalers
+lr_model = pickle.load(open(model_path, "rb"))
+feature_scaler = pickle.load(open(scaler_path, "rb"))
+target_scaler = pickle.load(open(target_scaler_path, "rb"))
+
 
 
 # # Deployment:
