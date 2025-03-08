@@ -17,9 +17,10 @@ import streamlit as st
 # In[73]:
 
 
-# Define correct paths
-base_path = os.path.join(os.path.dirname(__file__), "model_dep")
+# Get the absolute path of the current script
+base_path = os.path.dirname(__file__)  # This is "/mount/src/focusing_web_or_app/model_dep"
 
+# Construct correct paths to model and scalers
 model_path = os.path.join(base_path, "model_lr.pkl")
 scaler_path = os.path.join(base_path, "feature_scaler.pkl")
 target_scaler_path = os.path.join(base_path, "target_scaler.pkl")
@@ -28,7 +29,6 @@ target_scaler_path = os.path.join(base_path, "target_scaler.pkl")
 lr_model = pickle.load(open(model_path, "rb"))
 feature_scaler = pickle.load(open(scaler_path, "rb"))
 target_scaler = pickle.load(open(target_scaler_path, "rb"))
-
 
 
 # # Deployment:
